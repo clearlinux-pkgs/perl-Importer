@@ -4,7 +4,7 @@
 #
 Name     : perl-Importer
 Version  : 0.025
-Release  : 18
+Release  : 19
 URL      : http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz
 Summary  : Alternative but compatible interface to modules that export symbols.
