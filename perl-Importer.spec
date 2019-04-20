@@ -4,10 +4,10 @@
 #
 Name     : perl-Importer
 Version  : 0.025
-Release  : 17
+Release  : 18
 URL      : http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz
-Summary  : 'Alternative but compatible interface to modules that export symbols.'
+Summary  : Alternative but compatible interface to modules that export symbols.
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Importer-license = %{version}-%{release}
@@ -23,6 +23,7 @@ symbols.
 Summary: dev components for the perl-Importer package.
 Group: Development
 Provides: perl-Importer-devel = %{version}-%{release}
+Requires: perl-Importer = %{version}-%{release}
 
 %description dev
 dev components for the perl-Importer package.
