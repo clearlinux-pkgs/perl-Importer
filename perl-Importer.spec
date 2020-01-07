@@ -4,13 +4,14 @@
 #
 Name     : perl-Importer
 Version  : 0.025
-Release  : 19
+Release  : 20
 URL      : http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz
-Summary  : Alternative but compatible interface to modules that export symbols.
+Summary  : 'Alternative but compatible interface to modules that export symbols.'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Importer-license = %{version}-%{release}
+Requires: perl-Importer-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Test::More)
 
@@ -37,14 +38,24 @@ Group: Default
 license components for the perl-Importer package.
 
 
+%package perl
+Summary: perl components for the perl-Importer package.
+Group: Default
+Requires: perl-Importer = %{version}-%{release}
+
+%description perl
+perl components for the perl-Importer package.
+
+
 %prep
 %setup -q -n Importer-0.025
+cd %{_builddir}/Importer-0.025
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -54,7 +65,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -63,7 +74,7 @@ make TEST_VERBOSE=1 test || :
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Importer
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Importer/LICENSE
+cp %{_builddir}/Importer-0.025/LICENSE %{buildroot}/usr/share/package-licenses/perl-Importer/74bb8eb750cda2b148c179fa022ab0df3ad05cbd
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -76,7 +87,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Importer.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -84,4 +94,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Importer/LICENSE
+/usr/share/package-licenses/perl-Importer/74bb8eb750cda2b148c179fa022ab0df3ad05cbd
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Importer.pm
