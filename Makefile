@@ -1,5 +1,5 @@
 PKG_NAME := perl-Importer
-URL = http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz
+URL = https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.026.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
