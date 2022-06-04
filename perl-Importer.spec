@@ -4,7 +4,7 @@
 #
 Name     : perl-Importer
 Version  : 0.026
-Release  : 31
+Release  : 32
 URL      : https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.026.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.026.tar.gz
 Summary  : 'Alternative but compatible interface to modules that export symbols.'
@@ -97,4 +97,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/Importer.pm
+/usr/lib/perl5/*
